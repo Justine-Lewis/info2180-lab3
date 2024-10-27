@@ -54,4 +54,17 @@ document.addEventListener ("DOMContentLoaded", function(){
         });
     }
 
+    //Add event listener for New Game
+    document.querySelector('.btn').addEventListener("click", function(){
+        squares.forEach(square => {
+            square.textContent = '';
+            square.classList.remove('X','O', 'hover');
+        });
+        gameState.fill(null);
+        Player='X';
+        statusDiv.textContent='Move your mouse over a square and click to play an X or an O.';
+        statusDiv.classList.remove('you-won');
+        gameActive=true;
+    });
+
 });
