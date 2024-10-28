@@ -38,16 +38,18 @@ document.addEventListener ("DOMContentLoaded", function(){
                 if (findWinner(Player)){
                     statusDiv.textContent = `Congratulations! ${Player} is the Winner!`;
                     statusDiv.classList.add('you-won');
-                    gameActive = false;
+                    gameActive = false;//change the condition of loop so loop is fully terminated and no more moves are played
                     return;//prevent further moves
                 }
 
 
-                Player=Player=== 'X'?'O':'X';
+                Player=Player=== 'X'?'O':'X';//This checks what value is stored X or O and then value is re-assigned to Player
             }
         });
     });
 
+
+//This function first checks if there is at least one winning combination is met, then each index is checked in the current combination to find the winner
     function findWinner(Player){
         return winningCombos.some(combination =>{
             return combination.every(i=> gameState[i]===Player);
